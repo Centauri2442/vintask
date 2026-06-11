@@ -6,9 +6,7 @@ A port of [Cysharp's UniTask](https://github.com/Cysharp/UniTask) to [Vintage St
 VinTask is released under the MIT License. The core task machinery is from [UniTask](https://github.com/Cysharp/UniTask) by Yoshifumi Kawai (neuecc) / Cysharp, Inc., also MIT. Vintage Story integration and port by STUDIO Violet.
 
 # Overview
-In Vintage Story, plain `async Task` code can be a bit tedious to create, and can be better standardized through something like UniTask. The main thread has no SynchronizationContext, so every `await` resumes on a ThreadPool worker thread. Calling game APIs from there (chat, world access, anything rendering related) will crash or corrupt state, and the resulting bugs are confusing to track down since the code *looks* like it runs on the main thread.
-
-VinTask solves this by scheduling continuations through queues that are drained by the game's own render and tick loops. Your code resumes on the thread it started on, at a timing you control.
+VinTask ports UniTask to Vintage Story, allowing async/await code that respects VS's own render and tick loops. Your code resumes on the thread it started on, at a timing you control.
 
 VinTask is designed for temporary operations that run and complete within a play session. It has no persistence mechanism, so in-flight tasks are lost on world unload. Anything that needs to survive a save/load cycle (Crop growth, cooldowns, timed events) should use block entity data and _RegisterGameTickListener_ instead.
 

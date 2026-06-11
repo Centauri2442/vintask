@@ -8,6 +8,9 @@ namespace VinTask
 {
     public class VinTaskModSystem : ModSystem
     {
+        // Try to execute this before anything else
+        public override double ExecuteOrder() => 0.0001;
+        
         Action<Exception>? _unobservedExceptionLogger;
 
         public override void StartClientSide(ICoreClientAPI capi)

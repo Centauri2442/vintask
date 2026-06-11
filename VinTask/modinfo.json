@@ -1,0 +1,14 @@
+{
+    "$schema": "https://moddbcdn.vintagestory.at/schema/modinfo.latest.json",
+    "type": "Code",
+    "modid": "vintask",
+    "name": "VinTask - UniTask for Vintage Story",
+    "authors": [
+        "STUDIO Violet"
+    ],
+    "description": "UniTask async/await patterning built for Vintage Story",
+    "version": "0.1.0",
+    "dependencies": {
+        "game": "1.21.0"
+    }
+}

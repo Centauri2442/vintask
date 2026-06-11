@@ -65,7 +65,7 @@ capi.ShowChatMessage(result);                                    // 6. Touch the
 `SwitchToMainThread` is the counterpart to `SwitchToThreadPool`. Unlike `Yield`, it completes synchronously and costs no tick when you're already on a game thread, so it's safe to call defensively. The timing argument only decides the re-entry queue used when a switch is actually needed, and is not a guarantee of resuming at that exact stage. Use `Yield(timing)` when you need a specific render stage.
 
 Rules of thumb when using workers:
-- Snapshot game state before the hop, apply results after hopping back. World data is not safe to read from worker threads (Chunks can unload under you).
+- Snapshot game state before the hop, apply results after hopping back.
 - In single-player, be explicit after a pool hop. A bare `UniTask.SwitchToMainThread()` from a worker thread can't know which side you came from and prefers the client. Pass the side explicitly (`UniTask.SwitchToMainThread(ServerLoopTiming.OnServerTick)`) when it matters, or use `UniTask.Run`, which captures and restores your loop automatically.
 - For streaming progress out of a long job, use `Channel.CreateSingleConsumerUnbounded<T>()`. Write from the worker, then `await foreach` on the main thread.
 

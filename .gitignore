@@ -493,6 +493,9 @@ fabric.properties
 .history
 .ionide
 
+### LLM, for you weirdos that may use it in forks of VinTask
+.claude/
+
 ### VisualStudio ###
 
 # User-specific files

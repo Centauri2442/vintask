@@ -19,7 +19,6 @@ How to add VinTask to your mod
 }
 ```
 - Reference _VinTask.dll_ in your csproj, with `<Private>false</Private>` so it isn't copied to your output (It already ships with the VinTask mod).
-- Add `using Cysharp.Threading.Tasks;` to your scripts.
 
 # How it works
 The system can be broken down into three schedulable surfaces, each with its own timing enum:
